@@ -1,0 +1,67 @@
+/* Container styling */
+.all-videos-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f0f4f8; /* Light background color */
+  padding: 20px;
+}
+
+/* Main title styling */
+h1 {
+  color: #333;
+  font-size: 36px;
+  margin-bottom: 30px;
+}
+
+/* Individual video item styling */
+.video-item {
+  background-color: white; /* Solid white background */
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  width: 80%;
+  max-width: 600px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  text-align: center;
+}
+
+/* Title of each video */
+h3 {
+  color: #333;
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+/* Video player styling */
+video {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  outline: none;
+}
+
+/* Delete button styling */
+button {
+  padding: 10px 20px;
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Delete button hover effect */
+button:hover {
+  background-color: #ff1a1a;
+}
+
+/* Responsive design for smaller screens */
+@media screen and (max-width: 768px) {
+  .video-item {
+    width: 90%;
+  }
+}

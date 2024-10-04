@@ -7,9 +7,15 @@ const path = require('path');
 const fs = require('fs');
 const cors = require('cors');  
 
+// Load environment variables
+require('dotenv').config();
+
 const app = express();
 app.use(cors());
 app.use(express.json()); // Middleware to parse JSON data
+
+// Log the MongoDB URI for debugging
+console.log('MongoDB URI:', process.env.MONGODB_URI);
 
 // MongoDB Atlas connection
 mongoose.connect(process.env.MONGODB_URI)
@@ -37,15 +43,11 @@ app.post('/api/videos', upload.array('video'), async (req, res) => {
   try {
     // Loop through files and upload to Cloudinary
     const uploadedVideos = await Promise.all(req.files.map(async (file) => {
-      // Upload each file to Cloudinary
       const result = await cloudinary.uploader.upload(file.path, {
         resource_type: 'video',
       });
+      fs.unlinkSync(file.path); // Delete the file from the local server after uploading
 
-      // Delete the file from the local server after uploading
-      fs.unlinkSync(file.path);
-
-      // Return public_id and secure_url from Cloudinary upload response
       return {
         url: result.secure_url,  // Cloudinary URL
         public_id: result.public_id,  // Cloudinary public ID
@@ -59,11 +61,8 @@ app.post('/api/videos', upload.array('video'), async (req, res) => {
       videos: uploadedVideos,  // Array of video objects (with url and public_id)
     });
 
-    // Save the video document to MongoDB
-    await newVideo.save();
-
-    // Respond with the newly created video document
-    res.status(200).json(newVideo);
+    await newVideo.save(); // Save the video document to MongoDB
+    res.status(200).json(newVideo); // Respond with the newly created video document
   } catch (error) {
     console.error('Error uploading videos:', error);
     res.status(500).json({ error: 'Failed to upload videos' });

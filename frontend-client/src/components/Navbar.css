@@ -1,0 +1,48 @@
+
+/* Navbar container */
+.navbar {
+    background-color: #333;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Navigation list */
+  .nav-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 30px;
+  }
+  
+  /* Navigation links */
+  .nav-link {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: color 0.3s ease; /* Transition for color change */
+  }
+  
+  /* Hover effect for links - only changes text color */
+  .nav-link:hover {
+    color: #ffcc00; /* Change this color to your desired hover color */
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .nav-list {
+      flex-direction: column;
+      gap: 20px;
+    }
+  
+    .nav-link {
+      text-align: center;
+    }
+  }
+  

@@ -31,12 +31,13 @@ const UploadVideo = () => {
       const url = 'http://localhost:5000/api/upload-video';
       const response = await axios.post(url, formData, config);
 
-      // SweetAlert success message
+      // Show success SweetAlert
       Swal.fire({
-        title: 'Success!',
-        text: 'Video uploaded successfully!',
         icon: 'success',
-        confirmButtonText: 'Okay',
+        title: 'Video Uploaded',
+        text: 'Your video has been uploaded successfully!',
+        confirmButtonText: 'OK',
+        timer: 3000
       });
 
       // Reset form inputs
@@ -48,12 +49,12 @@ const UploadVideo = () => {
     } catch (err) {
       console.log('Error uploading video:', err.response);
 
-      // SweetAlert error message
+      // Show error SweetAlert
       Swal.fire({
-        title: 'Error!',
-        text: 'There was an issue uploading your video.',
         icon: 'error',
-        confirmButtonText: 'Try Again',
+        title: 'Error',
+        text: 'Failed to upload video. Please try again.',
+        confirmButtonText: 'OK',
       });
     }
   };
@@ -63,7 +64,7 @@ const UploadVideo = () => {
       <h1 className="card-title">Upload Video</h1>
       <form className="card-form">
         <div className="form-group">
-          <label>Video Title -</label>
+          <label>Title-</label>
           <input 
             type="text" 
             value={title} 
@@ -81,7 +82,7 @@ const UploadVideo = () => {
           />
         </div>
         <div className="form-group">
-          <label>Video File</label>
+          <label>Video-</label>
           <input 
             type="file" 
             multiple 

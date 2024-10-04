@@ -1,67 +1,75 @@
-/* Container styling */
+/* UploadedVideos.css */
+
 .all-videos-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  background-color: #f0f4f8; /* Light background color */
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 20px;
-}
-
-/* Main title styling */
-h1 {
-  color: #333;
-  font-size: 36px;
-  margin-bottom: 30px;
-}
-
-/* Individual video item styling */
-.video-item {
-  background-color: white; /* Solid white background */
-  border-radius: 8px;
-  padding: 20px;
-  margin-bottom: 20px;
-  width: 80%;
-  max-width: 600px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
-/* Title of each video */
-h3 {
+h1 {
+  font-size: 2rem;
   color: #333;
-  font-size: 20px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
-/* Video player styling */
+.video-item {
+  background-color: #fff;
+  margin: 20px 0;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  display: inline-block;
+  width: calc(33.333% - 40px);
+  margin-right: 15px;
+  vertical-align: top;
+}
+
+.video-item h3 {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
 video {
   width: 100%;
-  border-radius: 8px;
-  margin-bottom: 15px;
-  outline: none;
+  height: 180px;
+  border-radius: 10px;
+  background-color: #000;
 }
 
-/* Delete button styling */
 button {
-  padding: 10px 20px;
-  background-color: #ff4d4d;
+  background-color: #ff4b5c;
   color: white;
+  padding: 10px 15px;
   border: none;
   border-radius: 5px;
+  font-size: 1rem;
   cursor: pointer;
+  margin-top: 10px;
   transition: background-color 0.3s ease;
 }
 
-/* Delete button hover effect */
 button:hover {
-  background-color: #ff1a1a;
+  background-color: #e63946;
 }
 
-/* Responsive design for smaller screens */
-@media screen and (max-width: 768px) {
+/* Responsive Design */
+@media (max-width: 768px) {
   .video-item {
-    width: 90%;
+    width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 480px) {
+  .video-item {
+    width: 100%;
+  }
+
+  video {
+    height: 140px;
   }
 }

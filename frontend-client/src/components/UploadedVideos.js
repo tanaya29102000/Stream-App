@@ -22,7 +22,7 @@ const UploadedVideos = () => {
     try {
       await axios.delete(`http://localhost:5000/api/videos/${videoId}`);
       setVideos(videos.filter(video => video._id !== videoId));
-      // Show an alert when video is successfully deleted...........
+      // Show an alert when video is successfully deleted
       alert('Video has been deleted successfully!');
     } catch (error) {
       console.error('Error deleting video:', error);

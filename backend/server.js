@@ -31,7 +31,7 @@ cloudinary.config({
 const upload = multer({ dest: 'uploads/' });
 
 // Video Upload Route
-app.post('/api/upload-video', upload.array('video'), async (req, res) => {
+app.post('/api/videos', upload.array('video'), async (req, res) => {
   const { title, author } = req.body;
 
   if (!req.files || req.files.length === 0) {

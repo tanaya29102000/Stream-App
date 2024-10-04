@@ -8,7 +8,7 @@ const UploadedVideos = () => {
   useEffect(() => {
     const fetchVideos = async () => {
       try {
-        const response = await axios.get('https://stream-app-f6ao.vercel.app/api/videos');
+        const response = await axios.get('http://localhost:5000/api/videos');
         setVideos(response.data);
       } catch (error) {
         console.error('Error fetching videos:', error);
@@ -20,7 +20,7 @@ const UploadedVideos = () => {
 
   const handleDelete = async (videoId) => {
     try {
-      await axios.delete(`https://stream-app-f6ao.vercel.app/api/videos/${videoId}`);
+      await axios.delete(`http://localhost:5000/api/videos/${videoId}`);
       setVideos(videos.filter(video => video._id !== videoId));
       // Show an alert when video is successfully deleted
       alert('Video has been deleted successfully!');
